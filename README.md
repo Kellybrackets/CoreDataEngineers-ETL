@@ -1,3 +1,4 @@
+
 # CoreDataEngineers ETL Project
 
 ## Overview
@@ -67,3 +68,4 @@ This script moves all .csv and .json files from the current directory into a fol
     •    Insert Data Script: SQL statements to load the transformed CSV data into PostgreSQL.
     •    Query Script: Sample queries for analyzing and validating the loaded data.
 
+>>>>>>> etl_assignment
