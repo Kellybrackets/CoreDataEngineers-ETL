@@ -10,15 +10,15 @@ WHERE standard_qty = 0
   AND (gloss_qty > 1000 OR poster_qty > 1000);
 
 -- 3. Companies starting with C or W, primary contact contains 'ana' or 'Ana', but not 'eana'
-SELECT company_name, primary_contact
-FROM companies
-WHERE (company_name LIKE 'C%' OR company_name LIKE 'W%')
-  AND (primary_contact ILIKE '%ana%')
-  AND primary_contact NOT ILIKE '%eana%';
+SELECT name, primary_poc
+FROM accounts
+WHERE (name LIKE 'C%' OR name LIKE 'W%')
+  AND (primary_poc ILIKE '%ana%')
+  AND primary_poc NOT ILIKE '%eana%';
 
 -- 4. Region for each sales rep with associated accounts, sorted alphabetically
-SELECT r.region_name, s.sales_rep_name, a.account_name
+SELECT r.name, s.name, a.name
 FROM regions r
-JOIN sales_reps s ON r.region_id = s.region_id
-JOIN accounts a ON s.sales_rep_id = a.sales_rep_id
-ORDER BY a.account_name ASC;
+JOIN sales_reps s ON r.id = s.region_id
+JOIN accounts a ON s.id = a.sales_rep_id
+ORDER BY a.name ASC;
